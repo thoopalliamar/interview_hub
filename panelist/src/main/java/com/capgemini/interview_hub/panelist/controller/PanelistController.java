@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,6 +32,14 @@ public class PanelistController {
 	public ResponseEntity<?> saveMovie(@RequestBody Panelist panelist) {
 		Panelist savedPanelist ;
 		savedPanelist = panelistServiceImpl.savePanelist(panelist);
+		return new ResponseEntity<Panelist>(savedPanelist, HttpStatus.OK);
+
+	}
+	
+	@RequestMapping(value = "/panelist/{empId}", method = RequestMethod.GET)
+	public ResponseEntity<?> saveMovie(@PathVariable String empId) {
+		Panelist savedPanelist ;
+		savedPanelist = panelistServiceImpl.findPanelist(empId);
 		return new ResponseEntity<Panelist>(savedPanelist, HttpStatus.OK);
 
 	}

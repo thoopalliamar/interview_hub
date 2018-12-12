@@ -1,5 +1,6 @@
 package com.capgemini.interview_hub.panelist.domain;
 
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
@@ -19,6 +20,7 @@ public class Panelist {
 	private Long ExtensionNumber;
 	private Long secondaryMobNum;
 	private List<Project> projects;
+	
 	public String getEmpID() {
 		return empID;
 	}
@@ -70,8 +72,8 @@ public class Panelist {
 	public List<Project> getProjects() {
 		return projects;
 	}
-	public void setProjects(List<Project> projects) {
-		this.projects = projects;
+	public void setProjects(List<Project> localPrj) {
+		this.projects = localPrj;
 	}
 	public Panelist(String empID, String name, String emailID, String city, String location, Long mobileNumber,
 			Long extensionNumber, Long secondaryMobNum, List<Project> projects) {

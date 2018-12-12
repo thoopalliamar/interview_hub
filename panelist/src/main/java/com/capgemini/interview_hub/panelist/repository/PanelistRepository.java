@@ -8,5 +8,7 @@ import com.capgemini.interview_hub.panelist.domain.Panelist;
 
 @Repository
 public interface PanelistRepository extends CrudRepository<Panelist	, String>{
+	
+	public Panelist findByEmpID(String EmpId);
 
 }
